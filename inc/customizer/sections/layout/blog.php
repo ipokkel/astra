@@ -37,13 +37,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 						ASTRA_THEME_SETTINGS . '[blog-width]',
 						ASTRA_THEME_SETTINGS . '[blog-max-width]',
 					),
-					'colors' => array(
+					'colors' => array(),
+					'typography' => array(
 						ASTRA_THEME_SETTINGS . '[divider-font-size-archive-summary-title]',
 						ASTRA_THEME_SETTINGS . '[font-size-archive-summary-title]',
 						ASTRA_THEME_SETTINGS . '[divider-font-size-page-title]',
 						ASTRA_THEME_SETTINGS . '[font-size-page-title]',
 					),
-					'typography' => array(),
 				) ),
 			)
 		)
