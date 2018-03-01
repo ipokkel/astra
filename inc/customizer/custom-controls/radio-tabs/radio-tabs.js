@@ -40,8 +40,25 @@
 
 			if( dependent_controls.length > 0 ) {
 				jQuery.each( dependent_controls, function( index, val ) {
-					control_section.find( '#customize-control-astra-settings-' + val ).css( 'display', 'list-item' );
+					var control_name = val.replace( '[', '-' );
+					control_name = control_name.replace( ']', '' );
+					control_section.find( '#customize-control-' + control_name ).css( 'display', 'list-item' );
 				});
+			}
+
+			var CustomCustomizerToggle = {};
+			for ( var i = 0; i < dependent_controls.length; i++ ) {
+				var toggle_key = dependent_controls[i];
+				var toggle_parent_controls = 'undefined' != ASTCustomizer.toogle_parent_map[ toggle_key ] ? ASTCustomizer.toogle_parent_map[ toggle_key ] : null;
+				if( 'undefined' != typeof toggle_parent_controls && toggle_parent_controls.length > 0 ) {
+					for ( var j = 0; j < toggle_parent_controls.length; j++ ) {
+						CustomCustomizerToggle[toggle_parent_controls[j]] = ASTCustomizerToggles[ toggle_parent_controls[j] ];
+					}
+				}
+			}
+
+			if( Object.keys( CustomCustomizerToggle ).length > 0 ) {
+				ASTCustomizer._initToggles( CustomCustomizerToggle );
 			}
 		}
 

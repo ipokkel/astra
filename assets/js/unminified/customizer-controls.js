@@ -19,6 +19,10 @@
 
 		controls	: {},
 
+		toogle_parent_map : {},
+
+		toogle_parent_mapped : false,
+
 		/**
 		 * Initializes our custom logic for the Customizer.
 		 *
@@ -38,13 +42,18 @@
 		 * @access private
 		 * @method _initToggles
 		 */
-		_initToggles: function()
+		_initToggles: function( ASTCustomizerTogglesControls )
 		{
 			// Trigger the Adv Tab Click trigger.
 			ASTControlTrigger.triggerHook( 'astra-toggle-control', api );
+			if( 'undefined' == typeof ASTCustomizerTogglesControls ) {
+				ASTCustomizerTogglesControls = ASTCustomizerToggles;
+			}
+
+			console.log(! ASTCustomizer.toogle_parent_mapped);
 
 			// Loop through each setting.
-			$.each( ASTCustomizerToggles, function( settingId, toggles ) {
+			$.each( ASTCustomizerTogglesControls, function( settingId, toggles ) {
 
 				// Get the setting object.
 				api( settingId, function( setting ) {
@@ -58,6 +67,13 @@
 							// Get the control object.
 							api.control( controlId, function( control ) {
 
+								if( ! ASTCustomizer.toogle_parent_mapped ) {
+									if( typeof ASTCustomizer.toogle_parent_map[controlId] != 'undefined' && ASTCustomizer.toogle_parent_map[controlId].length > 0 ) {
+										ASTCustomizer.toogle_parent_map[controlId].push(settingId);
+									} else {
+										ASTCustomizer.toogle_parent_map[controlId] = [settingId];
+									}
+								}
 								// Define the visibility callback.
 								var visibility = function( to ) {
 									control.container.toggle( toggle.callback( to ) );
@@ -133,6 +149,8 @@
 				});
 
 			});
+
+			ASTCustomizer.toogle_parent_mapped = true;
 		}
 	};
 

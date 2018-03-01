@@ -32,16 +32,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'priority' => 0,
 				'choices' => array(
 					'general' => array(
-						'blog-post-content',
-						'blog-post-structure'
+						'astra-settings[ast-styling-section-blog-width]',
+						'astra-settings[blog-width]',
+						'astra-settings[blog-max-width]',
 					),
 					'style' => array(
-						'ast-styling-section-blog-width',
-						'blog-width',
-						'blog-max-width',
+						'astra-settings[blog-post-content]',
+						'astra-settings[blog-post-structure]',
 					),
 					'advanced' => array(
-						'blog-meta',
+						'astra-settings[blog-meta]',
 					),
 				),
 			)
