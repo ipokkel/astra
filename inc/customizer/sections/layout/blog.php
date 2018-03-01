@@ -14,36 +14,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
-	 * Option: Test Radio Button
+	 * Option: Blog Tabs
 	 */
 	$wp_customize->add_setting(
-		ASTRA_THEME_SETTINGS . '[test-radio-tabs]', array(
-			'default' => 'general',
-			'type'    => 'option',
+		ASTRA_THEME_SETTINGS . '[blog-tabs]', array(
+			'type' => 'option',
 		)
 	);
 
 	$wp_customize->add_control(
 		new Astra_Control_Radio_Tabs(
-			$wp_customize, ASTRA_THEME_SETTINGS . '[test-radio-tabs]', array(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-tabs]', array(
 				'type'    => 'ast-radio-tabs',
 				'label'   => __( 'Radio Tabs', 'astra' ),
 				'section' => 'section-blog',
 				'priority' => 0,
-				'choices' => array(
-					'general' => array(
-						'astra-settings[ast-styling-section-blog-width]',
+				'choices' => apply_filters( 'astra_customizer_blog_tabs', array(
+					'layout' => array(
+						'astra-settings[blog-post-content]',
+						'astra-settings[blog-post-structure]',
+						'astra-settings[blog-meta]',
 						'astra-settings[blog-width]',
 						'astra-settings[blog-max-width]',
 					),
-					'style' => array(
-						'astra-settings[blog-post-content]',
-						'astra-settings[blog-post-structure]',
+					'colors' => array(
+						'astra-settings[divider-font-size-archive-summary-title]',
+						'astra-settings[font-size-archive-summary-title]',
+						'astra-settings[divider-font-size-page-title]',
+						'astra-settings[font-size-page-title]',
 					),
-					'advanced' => array(
-						'astra-settings[blog-meta]',
-					),
-				),
+					'typography' => array(),
+				) ),
 			)
 		)
 	);
@@ -184,6 +185,94 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'min'  => 768,
 					'step' => 1,
 					'max'  => 1920,
+				),
+			)
+		)
+	);
+
+	/**
+	 * Option: Divider
+	 */
+	$wp_customize->add_control(
+		new Astra_Control_Divider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-font-size-archive-summary-title]', array(
+				'type'     => 'ast-divider',
+				'section'  => 'section-blog',
+				'priority' => 130,
+				'label'    => __( 'Archive Summary Box Title', 'astra' ),
+				'settings' => array(),
+			)
+		)
+	);
+
+	/**
+	 * Option: Archive Summary Box Title Font Size
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[font-size-archive-summary-title]', array(
+			'default'           => astra_get_option( 'font-size-archive-summary-title' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Astra_Control_Responsive(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-archive-summary-title]', array(
+				'type'        => 'ast-responsive',
+				'section'     => 'section-blog',
+				'priority'    => 135,
+				'label'       => __( 'Font Size', 'astra' ),
+				'input_attrs' => array(
+					'min' => 0,
+				),
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
+				),
+			)
+		)
+	);
+
+	/**
+	 * Option: Divider
+	 */
+	$wp_customize->add_control(
+		new Astra_Control_Divider(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[divider-font-size-page-title]', array(
+				'type'     => 'ast-divider',
+				'section'     => 'section-blog',
+				'priority' => 140,
+				'label'    => __( 'Blog Post Title', 'astra' ),
+				'settings' => array(),
+			)
+		)
+	);
+
+	/**
+	 * Option: Blog - Post Title Font Size
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[font-size-page-title]', array(
+			'default'           => astra_get_option( 'font-size-page-title' ),
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+		)
+	);
+	$wp_customize->add_control(
+		new Astra_Control_Responsive(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[font-size-page-title]', array(
+				'type'        => 'ast-responsive',
+				'section'     => 'section-blog',
+				'priority'    => 145,
+				'label'       => __( 'Font Size', 'astra' ),
+				'input_attrs' => array(
+					'min' => 0,
+				),
+				'units'       => array(
+					'px' => 'px',
+					'em' => 'em',
 				),
 			)
 		)
