@@ -34,12 +34,11 @@
 
 			parent.find(' > label').removeClass('activated');
 			label.addClass('activated');
-
+			
 			var dependentControls = [];
-            if( 'undefined' != typeof label.data('dependent-control') ) {
-                dependentControls = label.data('dependent-control').split(',')
-            }
-
+			if( 'undefined' != typeof label.data('dependent-control') ) {
+				dependentControls = label.data('dependent-control').split(',')
+			}
 			control_section.find('.customize-control:not(.customize-control-ast-radio-tabs)').css( 'display', 'none' );
 
 			if( dependentControls.length > 0 ) {
