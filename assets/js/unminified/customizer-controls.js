@@ -50,8 +50,6 @@
 				ASTCustomizerTogglesControls = ASTCustomizerToggles;
 			}
 
-			console.log(! ASTCustomizer.toogle_parent_mapped);
-
 			// Loop through each setting.
 			$.each( ASTCustomizerTogglesControls, function( settingId, toggles ) {
 
