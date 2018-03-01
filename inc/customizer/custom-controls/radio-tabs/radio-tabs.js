@@ -49,6 +49,7 @@
 				});
 			}
 
+			// @todo Remove `dependentControls` from `ASTCustomizerToggles[ toggleParentControls[j] ]`.
 			var CustomCustomizerToggle = {};
 			for ( var i = 0; i < dependentControls.length; i++ ) {
 				var ToggleKey = dependentControls[i];
