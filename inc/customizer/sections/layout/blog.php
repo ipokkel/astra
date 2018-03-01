@@ -14,6 +14,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 	/**
+	 * Option: Test Radio Button
+	 */
+	$wp_customize->add_setting(
+		ASTRA_THEME_SETTINGS . '[test-radio-tabs]', array(
+			'default' => 'general',
+			'type'    => 'option',
+		)
+	);
+
+	$wp_customize->add_control(
+		new Astra_Control_Radio_Tabs(
+			$wp_customize, ASTRA_THEME_SETTINGS . '[test-radio-tabs]', array(
+				'type'    => 'ast-radio-tabs',
+				'label'   => __( 'Radio Tabs', 'astra' ),
+				'section' => 'section-blog',
+				'priority' => 0,
+				'choices' => array(
+					'general' => array(
+						'blog-post-content',
+						'blog-post-structure'
+					),
+					'style' => array(
+						'ast-styling-section-blog-width',
+						'blog-width',
+						'blog-max-width',
+					),
+					'advanced' => array(
+						'blog-meta',
+					),
+				),
+			)
+		)
+	);
+
+	/**
 	 * Option: Blog Post Content
 	 */
 	$wp_customize->add_setting(
