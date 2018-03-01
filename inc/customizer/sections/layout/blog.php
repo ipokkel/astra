@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		new Astra_Control_Radio_Tabs(
 			$wp_customize, ASTRA_THEME_SETTINGS . '[blog-tabs]', array(
 				'type'    => 'ast-radio-tabs',
-				'label'   => __( 'Radio Tabs', 'astra' ),
+				'label'   => __( 'Blog Tabs', 'astra' ),
 				'section' => 'section-blog',
 				'priority' => 0,
 				'choices' => apply_filters( 'astra_customizer_blog_tabs', array(
