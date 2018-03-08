@@ -72,9 +72,20 @@
 										ASTCustomizer.toogle_parent_map[controlId] = [settingId];
 									}
 								}
+								
 								// Define the visibility callback.
 								var visibility = function( to ) {
-									control.container.toggle( toggle.callback( to ) );
+									if ( $('.accordion-section').hasClass('open') ) {
+										dependantControls = $('.accordion-section.open .activated').data('dependent-control').split(',');
+
+										if ( -1 !== dependantControls.indexOf( control.id )  ) {
+											control.container.toggle( toggle.callback( to ) );
+										}
+
+									} else {
+										control.container.toggle( toggle.callback( to ) );
+									}
+									
 								};
 
 								// Init visibility.

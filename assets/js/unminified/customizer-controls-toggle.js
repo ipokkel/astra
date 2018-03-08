@@ -321,6 +321,11 @@
 					'astra-settings[ast-small-footer-text-font]',
 					'astra-settings[footer-sml-divider]',
 					'astra-settings[footer-layout-width]',
+					
+					'astra-settings[footer-color]',
+					'astra-settings[footer-link-color]',
+					'astra-settings[footer-link-h-color]',
+					'astra-settings[footer-bg-color]',
 				],
 				callback: function( small_footer_layout ) {
 
