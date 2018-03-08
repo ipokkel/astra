@@ -17,8 +17,6 @@
 			// Change the value.
 			this.container.on( 'click', 'input', function() {
 				control.setting.set( jQuery( this ).val() );
-
-				$( document ).trigger('astra-customizer-controls-ast-radio-image-clicked', [control]);
 			});
 
 		}

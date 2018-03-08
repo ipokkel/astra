@@ -67,17 +67,3 @@
 			ASTCustomizer._initToggles( CustomCustomizerToggle );
 		}
 	}
-
-	/**
-	 * Trigger on Radio Image control click
-	 *
-	 * @param  object event         Event object.
-	 * @param  object control)		Control object.
-	 * @return void
-	 */
-	$( document ).on('astra-customizer-controls-ast-radio-image-clicked', function( event, control)
-	{
-		$( '#input_astra-settings[footer-bar-tabs] label' ).each(function(index, el) {
-			astraCustomizerRadioTabsToggle( $( el ) );
-		});
-	});
