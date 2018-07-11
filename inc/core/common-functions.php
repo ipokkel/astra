@@ -30,21 +30,8 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 			return 'transparent';
 
 		} else {
-
-			// Get clean hex code.
-			$hex = str_replace( '#', '', $hex );
-
-			if ( 3 == strlen( $hex ) ) {
-				$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
-			}
-
-			// Get r, g & b codes from hex code.
-			$r   = hexdec( substr( $hex, 0, 2 ) );
-			$g   = hexdec( substr( $hex, 2, 2 ) );
-			$b   = hexdec( substr( $hex, 4, 2 ) );
-			$hex = ( ( $r * 299 ) + ( $g * 587 ) + ( $b * 114 ) ) / 1000;
-
-			return 128 <= $hex ? '#000000' : '#ffffff';
+			$color = Astra_Color::newColor( $hex );
+			return ( 127 < $color->luminance ) ? '#222222' : '#FFFFFF';
 		}
 	}
 }

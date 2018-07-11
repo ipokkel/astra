@@ -95,6 +95,11 @@ require_once ASTRA_THEME_DIR . 'inc/metabox/class-astra-meta-box-operations.php'
  */
 require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer.php';
 
+/**
+ * Astra Color
+ */
+require_once ASTRA_THEME_DIR . 'inc/lib/aricolor.php';
+class_alias( 'ariColor', 'Astra_Color' );
 
 /**
  * Compatibility

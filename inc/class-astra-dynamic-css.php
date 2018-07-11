@@ -153,13 +153,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			$btn_style_color = astra_get_option( 'mobile-header-toggle-btn-style-color', false );
 
-			if ( false == $btn_style_color ) {
-				// button text color.
-				$menu_btn_color = esc_attr( astra_get_option( 'button-color' ) );
-			} else {
+			// if ( false == $btn_style_color ) {
+			// 	// button text color.
+			// 	$menu_btn_color = esc_attr( astra_get_option( 'button-color' ) );
+			// } else {
 				// toggle button color.
-				$menu_btn_color = astra_get_foreground_color( $btn_style_color );
-			}
+				$menu_btn_color = astra_get_foreground_color( $mobile_header_toggle_btn_style_color );
+			// }
 
 			$css_output = array();
 			// Body Font Family.
