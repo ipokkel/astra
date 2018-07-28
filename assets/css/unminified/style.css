@@ -1947,6 +1947,10 @@ input[type="submit"]:focus {
   padding: 0 1em;
   -webkit-border-radius: 0;
   border-radius: 0;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.3em;
 }
 
 .ast-header-break-point.ast-header-custom-item-inside .ast-search-menu-icon .search-form {
@@ -3458,6 +3462,7 @@ body {
 
 .ast-search-menu-icon .astra-search-icon {
   line-height: normal;
+  vertical-align: initial;
 }
 
 .ast-search-menu-icon form {

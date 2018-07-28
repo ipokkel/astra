@@ -135,6 +135,10 @@ input[type="submit"] {
             right: 0;
             padding: 0 1em;
             border-radius: 0;
+            background: none;
+            border: none;
+            color: inherit;
+            font-size: 1.3em;
         }
         .ast-search-menu-icon .search-form {
             padding: 0;
