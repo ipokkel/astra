@@ -54,6 +54,25 @@
     	padding-bottom: 0;
     }
 }
+
+.ast-search-icon {
+    position: absolute;
+    z-index: 3;
+    right: 2em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ast-dropdown-active.ast-search-menu-icon form {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ast-dropdown-active.ast-search-menu-icon {
+    border: 1px solid #eaeaea;
+    border-radius: 2px;
+}
+
 .main-header-bar{
 	z-index: 4;
 	position: relative;
@@ -165,7 +184,8 @@ li.ast-masthead-custom-menu-items {
 		background: transparent;
 	}
 	.ast-search-icon .astra-search-icon {
-		line-height: 1;
+		line-height: normal;
+    	vertical-align: middle;
 	}
 }
 
